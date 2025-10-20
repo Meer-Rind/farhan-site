@@ -1,11 +1,8 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function useScrollToTopOnFooterNav() {
-  // Returns a callback you can attach to any link in the footer
-  const onClick = React.useCallback((e) => {
-    // Let the router handle navigation, just scroll after
-    // If you use <a> with target _blank, it won't matter
+  const onClick = React.useCallback(() => {
     setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }, 0);
@@ -18,11 +15,11 @@ const Footer = () => {
   const handleFooterNav = useScrollToTopOnFooterNav();
 
   const social = [
-    { icon: "fab fa-facebook-f", link: "#", color: "hover:text-blue-500", label: "Facebook" },
-    { icon: "fab fa-twitter", link: "#", color: "hover:text-sky-400", label: "Twitter" },
-    { icon: "fab fa-instagram", link: "#", color: "hover:text-pink-500", label: "Instagram" },
-    { icon: "fab fa-linkedin-in", link: "#", color: "hover:text-blue-400", label: "LinkedIn" },
-    { icon: "fab fa-youtube", link: "#", color: "hover:text-red-500", label: "YouTube" },
+    { icon: "fab fa-facebook-f", link: "#", color: "hover:text-orange-400", label: "Facebook" },
+    { icon: "fab fa-twitter", link: "#", color: "hover:text-orange-400", label: "Twitter" },
+    { icon: "fab fa-instagram", link: "#", color: "hover:text-orange-400", label: "Instagram" },
+    { icon: "fab fa-linkedin-in", link: "#", color: "hover:text-orange-400", label: "LinkedIn" },
+    { icon: "fab fa-youtube", link: "#", color: "hover:text-orange-400", label: "YouTube" },
   ];
 
   const quickLinks = [
@@ -42,22 +39,24 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="relative bg-gray-950 text-gray-300">
+      {/* subtle orange glow */}
+      <div className="pointer-events-none absolute inset-x-0 -top-10 h-10 bg-gradient-to-b from-orange-500/20 to-transparent" />
+
       <div className="mx-auto max-w-7xl px-6 py-16">
         {/* Top Grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           {/* Company Info */}
           <div className="md:col-span-6 lg:col-span-5">
-            <div className="flex items-center mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 shadow-md">
+            <div className="mb-6 flex items-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-orange-600 to-amber-500 shadow-md shadow-orange-900/20 ring-1 ring-white/10">
                 <i className="fas fa-rocket text-white text-lg" />
               </div>
-              <h3 className="ml-3 text-2xl font-bold text-white">One Stop Creators</h3>
+              <h3 className="ml-3 text-2xl font-bold tracking-tight text-white">One Stop Creators</h3>
             </div>
-            <p className="mb-6 max-w-prose text-gray-400 leading-relaxed">
-              We are a full-service digital agency providing complete e-commerce and
-              marketing solutions. From TikTok shops to enterprise platforms, our team helps
-              brands grow with proven strategies and results.
+            <p className="mb-6 max-w-prose leading-relaxed text-gray-400">
+              We are a full‑service digital agency providing complete e‑commerce and marketing solutions. From
+              TikTok shops to enterprise platforms, our team helps brands grow with proven strategies and results.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -68,11 +67,21 @@ const Footer = () => {
                   aria-label={s.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-gray-400 transition ${s.color}`}
+                  className={`flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-gray-400 transition ring-1 ring-white/10 hover:bg-gray-800 ${s.color}`}
                 >
                   <i className={s.icon} />
                 </a>
               ))}
+            </div>
+
+            {/* trust badge row */}
+            <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-gray-500">
+              <span className="inline-flex items-center gap-1 rounded-full bg-orange-500/10 px-2.5 py-1 font-semibold text-orange-300 ring-1 ring-inset ring-orange-400/20">
+                <i className="fas fa-shield-alt" /> Secure & Trusted
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-orange-500/10 px-2.5 py-1 font-semibold text-orange-300 ring-1 ring-inset ring-orange-400/20">
+                <i className="fas fa-star" /> 5‑Star Support
+              </span>
             </div>
           </div>
 
@@ -85,10 +94,10 @@ const Footer = () => {
                   <Link
                     to={link.path}
                     onClick={handleFooterNav}
-                    className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                    className="group inline-flex items-center gap-2 text-gray-400 transition-colors hover:text-white"
                   >
-                    <i className="fas fa-chevron-right text-xs opacity-60" />
-                    {link.name}
+                    <i className="fas fa-chevron-right text-xs opacity-60 transition group-hover:text-orange-400" />
+                    <span className="group-hover:text-orange-200">{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -104,10 +113,10 @@ const Footer = () => {
                   <Link
                     to={s.path}
                     onClick={handleFooterNav}
-                    className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                    className="group inline-flex items-center gap-2 text-gray-400 transition-colors hover:text-white"
                   >
-                    <i className="fas fa-chevron-right text-xs opacity-60" />
-                    {s.name}
+                    <i className="fas fa-chevron-right text-xs opacity-60 transition group-hover:text-orange-400" />
+                    <span className="group-hover:text-orange-200">{s.name}</span>
                   </Link>
                 </li>
               ))}
@@ -120,7 +129,7 @@ const Footer = () => {
             <div className="space-y-4 text-sm">
               <div>
                 <p className="font-medium text-white">Phone:</p>
-                <a href="tel:03700411833" onClick={handleFooterNav} className="hover:text-blue-400">
+                <a href="tel:03700411833" onClick={handleFooterNav} className="text-gray-400 transition hover:text-orange-300">
                   0370-0411833
                 </a>
               </div>
@@ -129,7 +138,7 @@ const Footer = () => {
                 <a
                   href="mailto:info@onestopcreators.com"
                   onClick={handleFooterNav}
-                  className="hover:text-blue-400 break-all"
+                  className="break-all text-gray-400 transition hover:text-orange-300"
                 >
                   info@onestopcreators.com
                 </a>
@@ -149,15 +158,11 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="mt-12 border-t border-gray-800 pt-8">
+        <div className="mt-12 border-t border-white/10 pt-8">
           <div className="grid items-center gap-6 md:grid-cols-2">
             <div>
-              <h4 className="mb-1 text-lg font-semibold text-white">
-                Subscribe to our Newsletter
-              </h4>
-              <p className="text-sm text-gray-400">
-                Stay updated with the latest strategies, tips, and exclusive offers.
-              </p>
+              <h4 className="mb-1 text-lg font-semibold text-white">Subscribe to our Newsletter</h4>
+              <p className="text-sm text-gray-400">Stay updated with the latest strategies, tips, and exclusive offers.</p>
             </div>
 
             <form
@@ -165,17 +170,17 @@ const Footer = () => {
                 e.preventDefault();
                 // TODO: Hook into your newsletter service
               }}
-              className="flex overflow-hidden rounded-md ring-1 ring-gray-700 focus-within:ring-2 focus-within:ring-blue-500"
+              className="flex overflow-hidden rounded-md ring-1 ring-white/10 focus-within:ring-2 focus-within:ring-orange-500"
             >
               <input
                 type="email"
                 required
                 placeholder="Enter your email"
-                className="flex-1 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-400 outline-none"
+                className="flex-1 bg-gray-900 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none"
               />
               <button
                 type="submit"
-                className="bg-blue-600 px-6 py-3 text-white text-sm font-medium hover:bg-blue-700 transition"
+                className="bg-gradient-to-r from-orange-600 to-amber-500 px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
                 onClick={handleFooterNav}
               >
                 Subscribe
@@ -185,22 +190,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-6 text-sm text-gray-500 md:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-gray-500 md:flex-row">
           <p>
             © {currentYear} <span className="text-white">One Stop Creators</span>. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/sitemap" onClick={handleFooterNav} className="hover:text-white">
+            <Link to="/sitemap" onClick={handleFooterNav} className="transition hover:text-orange-300">
               Sitemap
             </Link>
-            <Link to="/faq" onClick={handleFooterNav} className="hover:text-white">
+            <Link to="/faq" onClick={handleFooterNav} className="transition hover:text-orange-300">
               FAQ
             </Link>
-            <Link to="/support" onClick={handleFooterNav} className="hover:text-white">
+            <Link to="/support" onClick={handleFooterNav} className="transition hover:text-orange-300">
               Support
             </Link>
-            <div className="flex items-center gap-2">
-              <i className="fas fa-shield-alt text-green-500" />
+            <div className="flex items-center gap-2 text-orange-300">
+              <i className="fas fa-shield-alt" />
               <span>Secure &amp; Trusted</span>
             </div>
           </div>

@@ -1,26 +1,26 @@
+// src/pages/CookiePolicy.js
 import React from "react";
 import { Link } from "react-router-dom";
 
 export default function CookiePolicy() {
   const lastUpdated = new Date().toLocaleDateString();
 
-  // Simple helper to smooth-scroll to sections
+  // Smooth-scroll to sections
   const goto = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1600&q=80&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-white via-white to-orange-50/40">
+      {/* HERO (orange/amber gradient, image-free) */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 text-white">
         <div className="relative mx-auto max-w-4xl px-4 py-14 text-center">
           <h1 className="text-4xl font-extrabold tracking-tight">Cookie Policy</h1>
           <p className="mt-2 text-white/90">Last updated: {lastUpdated}</p>
 
           {/* Quick nav / TOC */}
-          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-2">
             {[
               { label: "What Are Cookies", id: "what-are-cookies" },
               { label: "How We Use Cookies", id: "how-we-use-cookies" },
@@ -33,7 +33,7 @@ export default function CookiePolicy() {
               <button
                 key={item.id}
                 onClick={() => goto(item.id)}
-                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20"
+                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40"
               >
                 {item.label}
               </button>
@@ -46,10 +46,10 @@ export default function CookiePolicy() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-black/5">
           {/* Intro Notice */}
-          <div className="mb-8 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900">
+          <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
             This Cookie Policy explains what cookies are, how we use them, and how you can
             manage your preferences on this website. For general privacy terms, please see our{" "}
-            <Link to="/privacy-policy" className="font-semibold text-blue-700 hover:underline">
+            <Link to="/privacy-policy" className="font-semibold text-orange-700 hover:underline">
               Privacy Policy
             </Link>.
           </div>
@@ -92,35 +92,35 @@ export default function CookiePolicy() {
               </li>
             </ul>
 
-            {/* Example table (edit with your real cookies if needed) */}
+            {/* Example table */}
             <div className="mt-6 overflow-x-auto">
               <table className="w-full border-collapse overflow-hidden rounded-xl text-left ring-1 ring-gray-200">
-                <thead className="bg-gray-50 text-gray-600 text-sm">
-                  <tr>
-                    <th className="px-4 py-3">Cookie</th>
-                    <th className="px-4 py-3">Type</th>
-                    <th className="px-4 py-3">Purpose</th>
-                    <th className="px-4 py-3">Duration</th>
+                <thead className="bg-orange-50 text-gray-700 text-sm">
+                  <tr className="[&>th]:px-4 [&>th]:py-3">
+                    <th>Cookie</th>
+                    <th>Type</th>
+                    <th>Purpose</th>
+                    <th>Duration</th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-700 text-sm divide-y divide-gray-100">
-                  <tr>
-                    <td className="px-4 py-3">__session</td>
-                    <td className="px-4 py-3">Essential</td>
-                    <td className="px-4 py-3">Maintains secure session state</td>
-                    <td className="px-4 py-3">Session</td>
+                  <tr className="[&>td]:px-4 [&>td]:py-3">
+                    <td>__session</td>
+                    <td>Essential</td>
+                    <td>Maintains secure session state</td>
+                    <td>Session</td>
                   </tr>
-                  <tr>
-                    <td className="px-4 py-3">_ga</td>
-                    <td className="px-4 py-3">Analytics</td>
-                    <td className="px-4 py-3">Insights into site usage and performance</td>
-                    <td className="px-4 py-3">13 months</td>
+                  <tr className="[&>td]:px-4 [&>td]:py-3">
+                    <td>_ga</td>
+                    <td>Analytics</td>
+                    <td>Insights into site usage and performance</td>
+                    <td>13 months</td>
                   </tr>
-                  <tr>
-                    <td className="px-4 py-3">pref_lang</td>
-                    <td className="px-4 py-3">Preference</td>
-                    <td className="px-4 py-3">Saves your selected language</td>
-                    <td className="px-4 py-3">6 months</td>
+                  <tr className="[&>td]:px-4 [&>td]:py-3">
+                    <td>pref_lang</td>
+                    <td>Preference</td>
+                    <td>Saves your selected language</td>
+                    <td>6 months</td>
                   </tr>
                 </tbody>
               </table>
@@ -144,7 +144,7 @@ export default function CookiePolicy() {
                 href="https://support.google.com/chrome/answer/95647"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-blue-700 hover:bg-gray-100"
+                className="rounded-xl border border-gray-200 bg-orange-50/50 px-4 py-3 text-sm text-orange-700 hover:bg-orange-50 transition"
               >
                 Manage Cookies in Chrome
               </a>
@@ -152,7 +152,7 @@ export default function CookiePolicy() {
                 href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-blue-700 hover:bg-gray-100"
+                className="rounded-xl border border-gray-200 bg-orange-50/50 px-4 py-3 text-sm text-orange-700 hover:bg-orange-50 transition"
               >
                 Manage Cookies in Firefox
               </a>
@@ -160,7 +160,7 @@ export default function CookiePolicy() {
                 href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-blue-700 hover:bg-gray-100"
+                className="rounded-xl border border-gray-200 bg-orange-50/50 px-4 py-3 text-sm text-orange-700 hover:bg-orange-50 transition"
               >
                 Manage Cookies in Safari
               </a>
@@ -168,7 +168,7 @@ export default function CookiePolicy() {
                 href="https://support.microsoft.com/microsoft-edge"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-blue-700 hover:bg-gray-100"
+                className="rounded-xl border border-gray-200 bg-orange-50/50 px-4 py-3 text-sm text-orange-700 hover:bg-orange-50 transition"
               >
                 Manage Cookies in Edge
               </a>
@@ -180,7 +180,7 @@ export default function CookiePolicy() {
                 href="https://tools.google.com/dlpage/gaoptout"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-700 font-semibold hover:underline"
+                className="text-orange-700 font-semibold hover:underline"
               >
                 Google Analytics Opt-Out Browser Add-on
               </a>
@@ -211,13 +211,13 @@ export default function CookiePolicy() {
               <button
                 type="button"
                 onClick={() => alert("Open your cookie preferences panel here.")}
-                className="rounded-lg bg-blue-600 px-5 py-2.5 text-white font-semibold hover:bg-blue-700 transition"
+                className="rounded-lg bg-gradient-to-r from-orange-600 to-amber-500 px-5 py-2.5 text-white font-semibold shadow hover:brightness-110 transition"
               >
                 Manage Preferences
               </button>
               <Link
                 to="/privacy-policy"
-                className="rounded-lg border border-blue-600 px-5 py-2.5 text-blue-700 font-semibold hover:bg-blue-50 transition"
+                className="rounded-lg border-2 border-orange-600 px-5 py-2.5 text-orange-700 font-semibold hover:bg-orange-600 hover:text-white transition"
               >
                 View Privacy Policy
               </Link>
@@ -246,12 +246,12 @@ export default function CookiePolicy() {
               If you have questions about this Cookie Policy, please contact us at{" "}
               <a
                 href="mailto:privacy@onestopcreators.com"
-                className="text-blue-700 font-semibold hover:underline"
+                className="text-orange-700 font-semibold hover:underline"
               >
                 privacy@onestopcreators.com
               </a>{" "}
               or{" "}
-              <a href="tel:03700411833" className="text-blue-700 font-semibold hover:underline">
+              <a href="tel:03700411833" className="text-orange-700 font-semibold hover:underline">
                 +92 370-0411833
               </a>.
             </p>
@@ -262,7 +262,7 @@ export default function CookiePolicy() {
         <div className="mt-8 text-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-blue-700 font-semibold hover:underline"
+            className="text-orange-700 font-semibold hover:underline"
           >
             Back to top
           </button>

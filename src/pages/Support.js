@@ -14,11 +14,11 @@ import {
   AlertCircle,
   ShieldCheck,
   Clock4,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 
-// Uses TailwindCSS + framer-motion + lucide-react
-// Install (if needed): npm i framer-motion lucide-react
+// Tailwind + framer-motion + lucide-react
+// npm i framer-motion lucide-react
 
 const supportMethods = [
   {
@@ -62,43 +62,41 @@ function MethodCard({ item, i }) {
       href={item.href}
       target={item.href?.startsWith("http") ? "_blank" : undefined}
       rel={item.href?.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="group block rounded-2xl bg-white p-6 shadow-lg ring-1 ring-black/5 transition hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/30"
+      className="group block rounded-2xl bg-white p-6 shadow-lg ring-1 ring-black/5 transition hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-500/30"
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ delay: i * 0.05 }}
     >
-      <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-purple-700 text-white shadow">
+      <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow">
         <Icon className="h-6 w-6" />
       </div>
-      <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
-      <p className="mt-1 text-sm text-slate-600">{item.description}</p>
-      <div className="mt-4 text-sm font-semibold text-blue-700 group-hover:underline">
-        {item.contact}
-      </div>
-      <p className="mt-1 text-xs text-slate-500">{item.hours}</p>
+      <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
+      <p className="mt-1 text-sm text-gray-600">{item.description}</p>
+      <div className="mt-4 text-sm font-semibold text-orange-700 group-hover:underline">{item.contact}</div>
+      <p className="mt-1 text-xs text-gray-500">{item.hours}</p>
     </motion.a>
   );
 }
 
-function ResourceLink({ href, Icon, label, color = "text-slate-600" }) {
+function ResourceLink({ href, Icon, label, color = "text-gray-600" }) {
   return (
-    <a href={href} className="flex items-center gap-3 rounded-xl p-3 transition hover:bg-slate-50">
+    <a href={href} className="flex items-center gap-3 rounded-xl p-3 transition hover:bg-orange-50/50">
       <Icon className={`h-5 w-5 ${color}`} />
-      <span className="font-medium text-blue-700 hover:underline">{label}</span>
+      <span className="font-medium text-orange-700 hover:underline">{label}</span>
     </a>
   );
 }
 
 function Stat({ Icon, label, value }) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl bg-white/70 p-5 shadow ring-1 ring-black/5 backdrop-blur supports-[backdrop-filter]:bg-white/50">
-      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+    <div className="flex items-center gap-4 rounded-2xl bg-white/80 p-5 shadow ring-1 ring-black/5 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 text-white">
         <Icon className="h-5 w-5" />
       </div>
       <div>
-        <div className="text-2xl font-extrabold text-slate-900">{value}</div>
-        <div className="text-xs font-medium text-slate-600">{label}</div>
+        <div className="text-2xl font-extrabold text-gray-900">{value}</div>
+        <div className="text-xs font-medium text-gray-600">{label}</div>
       </div>
     </div>
   );
@@ -106,12 +104,12 @@ function Stat({ Icon, label, value }) {
 
 function FaqItem({ q, a }) {
   return (
-    <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-lg">
+    <details className="group rounded-2xl border border-gray-200 bg-white p-5 open:shadow-lg">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-        <h4 className="text-sm font-semibold text-slate-900">{q}</h4>
-        <span className="grid h-6 w-6 place-items-center rounded-full bg-slate-100 text-slate-700 transition group-open:rotate-45">+</span>
+        <h4 className="text-sm font-semibold text-gray-900">{q}</h4>
+        <span className="grid h-6 w-6 place-items-center rounded-full bg-orange-50 text-orange-700 transition group-open:rotate-45">+</span>
       </summary>
-      <p className="mt-3 text-sm text-slate-600">{a}</p>
+      <p className="mt-3 text-sm text-gray-600">{a}</p>
     </details>
   );
 }
@@ -150,12 +148,10 @@ export default function Support() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-white to-blue-50/40 pt-16">
-      {/* HERO (responsive standard height) */}
-      <section
-        className="relative flex items-center overflow-hidden bg-gradient-to-r from-blue-700 to-indigo-700 text-white py-16 md:py-20 min-h-[45vh] md:min-h-[60vh] lg:min-h-[70vh]"
-      >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1525182008055-f88b95ff7980?w=1600&q=80&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
+    <div className="min-h-screen bg-gradient-to-b from-white via-white to-orange-50/40 pt-16">
+      {/* HERO */}
+      <section className="relative flex min-h-[45vh] items-center overflow-hidden bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 py-16 text-white md:min-h-[60vh] lg:min-h-[70vh] md:py-20">
+        <div className="absolute inset-0 opacity-10" />
         <div className="relative mx-auto max-w-7xl px-4">
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -169,7 +165,7 @@ export default function Support() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="mt-3 max-w-2xl text-slate-100/90"
+            className="mt-3 max-w-2xl text-white/90"
           >
             We're here to help you succeed. Choose the best way to get in touch.
           </motion.p>
@@ -194,8 +190,8 @@ export default function Support() {
         <div className="mt-12 grid gap-12 lg:grid-cols-3">
           {/* FORM (spans 2 columns) */}
           <div className="lg:col-span-2 rounded-2xl bg-white p-8 shadow-lg ring-1 ring-black/5">
-            <h2 className="text-2xl font-extrabold text-slate-900">Send us a Message</h2>
-            <p className="mt-1 text-sm text-slate-600">Tell us what you need help with and we'll respond swiftly.</p>
+            <h2 className="text-2xl font-extrabold text-gray-900">Send us a Message</h2>
+            <p className="mt-1 text-sm text-gray-600">Tell us what you need help with and we'll respond swiftly.</p>
 
             {status.type !== "idle" && (
               <div
@@ -219,7 +215,9 @@ export default function Support() {
             <form onSubmit={handleSubmit} className="mt-6 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="name">Full Name</label>
+                  <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="name">
+                    Full Name
+                  </label>
                   <input
                     id="name"
                     type="text"
@@ -227,12 +225,14 @@ export default function Support() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:border-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="email">Email Address</label>
+                  <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="email">
+                    Email Address
+                  </label>
                   <input
                     id="email"
                     type="email"
@@ -240,8 +240,10 @@ export default function Support() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className={`w-full rounded-xl border px-4 py-3 text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 ${
-                      emailOk ? "border-slate-200 focus:border-blue-600" : "border-red-300 focus:border-red-500"
+                    className={`w-full rounded-xl border px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-4 ${
+                      emailOk
+                        ? "border-gray-200 focus:border-orange-600 focus:ring-orange-500/20"
+                        : "border-red-300 focus:border-red-500 focus:ring-red-500/20"
                     }`}
                     placeholder="you@example.com"
                     aria-invalid={!emailOk}
@@ -251,7 +253,9 @@ export default function Support() {
 
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="subject">Subject</label>
+                  <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="subject">
+                    Subject
+                  </label>
                   <input
                     id="subject"
                     type="text"
@@ -259,18 +263,20 @@ export default function Support() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:border-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
                     placeholder="Brief subject line"
                   />
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="service">Service</label>
+                  <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="service">
+                    Service
+                  </label>
                   <select
                     id="service"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                    className="w-full appearance-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 shadow-sm focus:border-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
                   >
                     <option value="">Select a service</option>
                     <option value="tiktok">TikTok Shop</option>
@@ -285,7 +291,9 @@ export default function Support() {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="message">Message</label>
+                <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="message">
+                  Message
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -293,7 +301,7 @@ export default function Support() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                  className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:border-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
                   placeholder="Describe your issue or question in detail..."
                 />
               </div>
@@ -301,7 +309,7 @@ export default function Support() {
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-blue-500/30 disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-orange-500/30 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 Send Message
                 <ArrowRight className="h-4 w-4" />
@@ -311,9 +319,9 @@ export default function Support() {
 
           {/* SIDEBAR */}
           <div className="space-y-6">
-            <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-700 p-8 text-white shadow-lg">
+            <div className="rounded-2xl bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 p-8 text-white shadow-lg">
               <h3 className="text-2xl font-extrabold">Emergency Support</h3>
-              <p className="mt-2 text-slate-100/90">For urgent issues affecting your operations.</p>
+              <p className="mt-2 text-white/90">For urgent issues affecting your operations.</p>
               <a
                 href="tel:03700411833"
                 className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white/10 px-5 py-3 font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/20"
@@ -323,8 +331,8 @@ export default function Support() {
             </div>
 
             <div className="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-black/5">
-              <h3 className="text-xl font-extrabold text-slate-900">Support Resources</h3>
-              <div className="mt-4 divide-y divide-slate-100">
+              <h3 className="text-xl font-extrabold text-gray-900">Support Resources</h3>
+              <div className="mt-4 divide-y divide-gray-100">
                 <ResourceLink href="/faq" Icon={HelpCircle} label="Frequently Asked Questions" />
                 <ResourceLink href="/sitemap" Icon={Network} label="Website Sitemap" />
                 <ResourceLink href="/services" Icon={Cog} label="Service Documentation" />
@@ -332,8 +340,10 @@ export default function Support() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-yellow-200 bg-yellow-50 p-6 text-yellow-900">
-              <h4 className="flex items-center gap-2 font-semibold"><AlertCircle className="h-4 w-4"/> Support Hours Notice</h4>
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
+              <h4 className="flex items-center gap-2 font-semibold">
+                <AlertCircle className="h-4 w-4" /> Support Hours Notice
+              </h4>
               <p className="mt-1 text-sm">
                 Phone support is available <b>Mon–Sat • 9:00 AM – 5:00 PM</b>. Email responses typically within <b>24 hours</b>.
               </p>
@@ -344,8 +354,8 @@ export default function Support() {
         {/* FAQ SECTION */}
         <section className="mt-16">
           <div className="mx-auto max-w-3xl text-center">
-            <h3 className="text-2xl font-extrabold text-slate-900">Frequently Asked Questions</h3>
-            <p className="mt-2 text-sm text-slate-600">Quick answers to common questions.</p>
+            <h3 className="text-2xl font-extrabold text-gray-900">Frequently Asked Questions</h3>
+            <p className="mt-2 text-sm text-gray-600">Quick answers to common questions.</p>
           </div>
           <div className="mx-auto mt-6 grid max-w-4xl gap-4 md:grid-cols-2">
             <FaqItem q="How fast do you reply to emails?" a="Within 2 hours on business days, 24 hours max." />
@@ -356,13 +366,13 @@ export default function Support() {
         </section>
 
         {/* CTA */}
-        <section className="relative mt-16 overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800 p-10 text-center text-white">
-          <div className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-transparent to-slate-900/40" />
+        <section className="relative mt-16 overflow-hidden rounded-3xl bg-gradient-to-r from-orange-900 via-orange-800 to-amber-800 p-10 text-center text-white">
+          <div className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-transparent to-black/10" />
           <h3 className="text-2xl font-extrabold sm:text-3xl">Need priority assistance?</h3>
-          <p className="mx-auto mt-2 max-w-2xl text-slate-300">Get a dedicated specialist for mission‑critical issues.</p>
+          <p className="mx-auto mt-2 max-w-2xl text-white/80">Get a dedicated specialist for mission‑critical issues.</p>
           <a
             href="mailto:support@onestopcreators.com?subject=Priority%20Support%20Request"
-            className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white/10 px-7 py-3 text-base font-semibold text-white shadow-lg ring-1 ring-white/20 transition hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-blue-500/30"
+            className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white/10 px-7 py-3 text-base font-semibold text-white shadow-lg ring-1 ring-white/20 transition hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-orange-500/30"
           >
             Contact Priority Support <ArrowRight className="h-5 w-5" />
           </a>

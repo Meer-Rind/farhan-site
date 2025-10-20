@@ -1,3 +1,4 @@
+// src/pages/RefundPolicy.js
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,16 +11,15 @@ export default function RefundPolicy() {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1600&q=80&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-white via-white to-orange-50/40">
+      {/* HERO (orange gradient, image-free for clarity) */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 text-white">
         <div className="relative mx-auto max-w-4xl px-4 py-14 text-center">
           <h1 className="text-4xl font-extrabold tracking-tight">Refund Policy</h1>
           <p className="mt-2 text-white/90">Last updated: {lastUpdated}</p>
 
           {/* TOC */}
-          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-2">
             {[
               { id: "eligibility", label: "Eligibility" },
               { id: "windows", label: "Refund Windows" },
@@ -31,7 +31,7 @@ export default function RefundPolicy() {
               <button
                 key={item.id}
                 onClick={() => goto(item.id)}
-                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20"
+                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40"
               >
                 {item.label}
               </button>
@@ -44,11 +44,11 @@ export default function RefundPolicy() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-black/5">
           {/* Intro notice */}
-          <div className="mb-8 rounded-xl border-l-4 border-blue-600 bg-blue-50 p-4">
-            <p className="text-sm text-blue-900">
+          <div className="mb-8 rounded-xl border-l-4 border-orange-600 bg-orange-50 p-4">
+            <p className="text-sm text-orange-900">
               We aim to be fair and transparent. This policy explains when refunds apply, how to request them, and
               which fees or services are excluded. For general terms, see our{" "}
-              <Link to="/terms-conditions" className="font-semibold text-blue-700 hover:underline">
+              <Link to="/terms-conditions" className="font-semibold text-orange-700 hover:underline">
                 Terms & Conditions
               </Link>
               .
@@ -85,7 +85,7 @@ export default function RefundPolicy() {
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Refund Windows</h2>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse overflow-hidden rounded-xl text-left ring-1 ring-gray-200">
-                <thead className="bg-gray-50 text-gray-600 text-sm">
+                <thead className="bg-orange-50 text-gray-700 text-sm">
                   <tr>
                     <th className="px-4 py-3">Scenario</th>
                     <th className="px-4 py-3">Window</th>
@@ -135,13 +135,20 @@ export default function RefundPolicy() {
             <h2 className="text-2xl font-bold text-gray-900 mb-3">How to Request a Refund</h2>
             <ol className="list-decimal list-inside text-gray-700 space-y-3">
               <li>
-                Email <a href="mailto:billing@onestopcreators.com" className="text-blue-700 font-semibold hover:underline">billing@onestopcreators.com</a> from your registered address.
+                Email{" "}
+                <a
+                  href="mailto:billing@onestopcreators.com"
+                  className="text-orange-700 font-semibold hover:underline"
+                >
+                  billing@onestopcreators.com
+                </a>{" "}
+                from your registered address.
               </li>
               <li>Include order/invoice number, purchase date, and reason for request.</li>
               <li>We’ll acknowledge within <b>1–3 business days</b> and review within <b>3–5 business days</b>.</li>
               <li>Approved refunds are processed within <b>10 business days</b>.</li>
             </ol>
-            <div className="mt-4 rounded-xl border border-yellow-200 bg-yellow-50 p-4 text-sm text-yellow-900">
+            <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
               Tip: Attach any relevant evidence (briefs, logs, screenshots) to speed up review.
             </div>
           </section>
@@ -168,16 +175,16 @@ export default function RefundPolicy() {
           {/* CONTACT */}
           <section id="contact" className="scroll-mt-24">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Contact for Refunds</h2>
-            <div className="rounded-xl bg-gray-50 p-6">
+            <div className="rounded-2xl bg-orange-50/50 p-6 ring-1 ring-orange-100">
               <p className="text-gray-700 mb-2">
                 <b>Email:</b>{" "}
-                <a href="mailto:billing@onestopcreators.com" className="text-blue-700 font-semibold hover:underline">
+                <a href="mailto:billing@onestopcreators.com" className="text-orange-700 font-semibold hover:underline">
                   billing@onestopcreators.com
                 </a>
               </p>
               <p className="text-gray-700 mb-2">
                 <b>Phone:</b>{" "}
-                <a href="tel:03700411833" className="text-blue-700 font-semibold hover:underline">
+                <a href="tel:03700411833" className="text-orange-700 font-semibold hover:underline">
                   +92 370-0411833
                 </a>
               </p>
@@ -192,7 +199,7 @@ export default function RefundPolicy() {
         <div className="mt-8 text-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-blue-700 font-semibold hover:underline"
+            className="text-orange-700 font-semibold hover:underline"
           >
             Back to top
           </button>

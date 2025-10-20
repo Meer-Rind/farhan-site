@@ -1,3 +1,4 @@
+// src/pages/PrivacyPolicy.js
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,16 +11,15 @@ export default function PrivacyPolicy() {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1600&q=80&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-white via-white to-orange-50/40">
+      {/* HERO (orange/amber gradient, image-free) */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 text-white">
         <div className="relative mx-auto max-w-4xl px-4 py-14 text-center">
           <h1 className="text-4xl font-extrabold tracking-tight">Privacy Policy</h1>
           <p className="mt-2 text-white/90">Last updated: {lastUpdated}</p>
 
           {/* TOC */}
-          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-2">
             {[
               { n: "1", label: "Introduction", id: "intro" },
               { n: "2", label: "Information We Collect", id: "info" },
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
               <button
                 key={item.id}
                 onClick={() => goto(item.id)}
-                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20"
+                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40"
               >
                 {item.n}. {item.label}
               </button>
@@ -50,11 +50,11 @@ export default function PrivacyPolicy() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-black/5">
           {/* Notice */}
-          <div className="mb-8 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900">
+          <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
             This policy explains how <b>One Stop Creators</b> (“we”, “us”, “our”) collects, uses,
             shares, and safeguards personal information across our website and services.
             For cookie details, see our{" "}
-            <Link to="/cookie-policy" className="font-semibold text-blue-700 hover:underline">
+            <Link to="/cookie-policy" className="font-semibold text-orange-700 hover:underline">
               Cookie Policy
             </Link>.
           </div>
@@ -175,7 +175,7 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="text-gray-700 leading-relaxed">
               To exercise your rights, contact us at{" "}
-              <a href="mailto:privacy@onestopcreators.com" className="text-blue-700 font-semibold hover:underline">
+              <a href="mailto:privacy@onestopcreators.com" className="text-orange-700 font-semibold hover:underline">
                 privacy@onestopcreators.com
               </a>.
             </p>
@@ -205,20 +205,22 @@ export default function PrivacyPolicy() {
           {/* 12 Contact */}
           <section id="contact" className="scroll-mt-24">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">12. Contact Us</h2>
-            <div className="rounded-xl bg-gray-50 p-6">
+            <div className="rounded-2xl bg-orange-50/50 p-6 ring-1 ring-orange-100">
               <p className="text-gray-700">
                 <b>Email:</b>{" "}
-                <a href="mailto:privacy@onestopcreators.com" className="text-blue-700 font-semibold hover:underline">
+                <a href="mailto:privacy@onestopcreators.com" className="text-orange-700 font-semibold hover:underline">
                   privacy@onestopcreators.com
                 </a>
               </p>
-              <p className="text-gray-700"><b>Phone:</b> +92 370-0411833</p>
+              <p className="text-gray-700">
+                <b>Phone:</b> +92 370-0411833
+              </p>
               <p className="text-gray-700">
                 <b>Address:</b> [Your Business Address]
               </p>
-              <p className="mt-3 text-sm text-gray-500">
+              <p className="mt-3 text-sm text-gray-600">
                 For cookies and tracking, visit our{" "}
-                <Link to="/cookie-policy" className="font-semibold text-blue-700 hover:underline">
+                <Link to="/cookie-policy" className="font-semibold text-orange-700 hover:underline">
                   Cookie Policy
                 </Link>.
               </p>
@@ -230,7 +232,7 @@ export default function PrivacyPolicy() {
         <div className="mt-8 text-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-blue-700 font-semibold hover:underline"
+            className="text-orange-700 font-semibold hover:underline"
           >
             Back to top
           </button>

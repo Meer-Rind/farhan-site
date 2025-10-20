@@ -9,10 +9,10 @@ import {
   HelpCircle,
   ShieldCheck,
   Info,
+  X,
 } from "lucide-react";
 
 export default function FAQ() {
-  // JS-safe: no TypeScript generics
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [query, setQuery] = React.useState("");
 
@@ -60,12 +60,14 @@ export default function FAQ() {
           "Book a free consultation. We’ll review your goals, audit your current setup, and share a clear plan with timelines and deliverables.",
       },
       {
-        question: "Can you integrate with my existing tools (Shopify, CRM, ad platforms)?",
+        question:
+          "Can you integrate with my existing tools (Shopify, CRM, ad platforms)?",
         answer:
           "Absolutely. We routinely integrate storefronts, ERPs, CRMs, analytics, and ad platforms, ensuring clean data flow and accurate reporting.",
       },
       {
-        question: "Do you sign NDAs and follow compliance best practices?",
+        question:
+          "Do you sign NDAs and follow compliance best practices?",
         answer:
           "Yes. We can sign mutual NDAs on request and follow data security and compliance best practices throughout our engagements.",
       },
@@ -89,11 +91,13 @@ export default function FAQ() {
   const toggleFAQ = (index) =>
     setActiveIndex((prev) => (prev === index ? null : index));
 
+  const clearQuery = () => setQuery("");
+
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
-      {/* HERO with responsive height */}
-      <section className="relative flex items-center overflow-hidden bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16 md:py-20 min-h-[40vh] md:min-h-[55vh] lg:min-h-[60vh]">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1600&q=80&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-white via-white to-orange-50/40">
+      {/* HERO */}
+      <section className="relative flex items-center overflow-hidden bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 text-white py-16 md:py-20 min-h-[40vh] md:min-h-[55vh] lg:min-h-[60vh]">
+        <div className="absolute inset-0 opacity-10" />
         <div className="relative mx-auto max-w-5xl px-4 text-center">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             Frequently Asked Questions
@@ -108,19 +112,44 @@ export default function FAQ() {
               Search FAQs
             </label>
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/70" />
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/80" />
               <input
                 id="faq-search"
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by question, platform, or topic…"
-                className="w-full rounded-2xl bg-white/15 px-12 py-3 text-white placeholder-white/60 shadow ring-1 ring-white/20 backdrop-blur focus:outline-none focus:ring-2 focus:ring-white/40"
+                className="w-full rounded-2xl bg-white/15 px-12 py-3 text-white placeholder-white/70 shadow ring-1 ring-white/20 backdrop-blur focus:outline-none focus:ring-2 focus:ring-white/40"
+                autoComplete="off"
               />
+              {query && (
+                <button
+                  type="button"
+                  aria-label="Clear search"
+                  onClick={clearQuery}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/20 hover:bg-white/20"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
-            <p className="mt-2 text-sm text-white/80">
+            <p className="mt-2 text-sm text-white/85">
               Showing {filteredFaqs.length} of {faqs.length} questions
             </p>
+
+            {/* Quick chips */}
+            <div className="mt-4 flex flex-wrap justify-center gap-2 text-[12px] font-semibold">
+              {["Pricing", "Results", "Platforms", "Integrations", "Support"].map((chip) => (
+                <button
+                  key={chip}
+                  type="button"
+                  onClick={() => setQuery(chip)}
+                  className="rounded-full bg-white/10 px-3 py-1 text-white ring-1 ring-white/20 hover:bg-white/20"
+                >
+                  {chip}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -130,15 +159,15 @@ export default function FAQ() {
         {/* Info strip */}
         <div className="mb-6 grid gap-3 sm:grid-cols-3">
           <div className="flex items-center gap-3 rounded-xl bg-white p-3 shadow ring-1 ring-black/5">
-            <HelpCircle className="h-5 w-5 text-blue-600" />
+            <HelpCircle className="h-5 w-5 text-orange-600" />
             <span className="text-sm text-gray-700">Clear, concise answers</span>
           </div>
           <div className="flex items-center gap-3 rounded-xl bg-white p-3 shadow ring-1 ring-black/5">
-            <ShieldCheck className="h-5 w-5 text-blue-600" />
+            <ShieldCheck className="h-5 w-5 text-orange-600" />
             <span className="text-sm text-gray-700">Trust & compliance first</span>
           </div>
           <div className="flex items-center gap-3 rounded-xl bg-white p-3 shadow ring-1 ring-black/5">
-            <Info className="h-5 w-5 text-blue-600" />
+            <Info className="h-5 w-5 text-orange-600" />
             <span className="text-sm text-gray-700">Updated regularly</span>
           </div>
         </div>
@@ -153,7 +182,7 @@ export default function FAQ() {
               return (
                 <div
                   key={index}
-                  className="rounded-xl border border-gray-200 bg-white"
+                  className="rounded-xl border border-gray-200 bg-white transition hover:border-orange-200/80"
                 >
                   <button
                     id={buttonId}
@@ -166,7 +195,7 @@ export default function FAQ() {
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`h-5 w-5 text-blue-600 transition-transform ${
+                      className={`h-5 w-5 text-orange-600 transition-transform ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -182,7 +211,7 @@ export default function FAQ() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <div className="px-5 sm:px-6 pb-5 pt-0 bg-gray-50 border-t border-gray-100">
+                      <div className="px-5 sm:px-6 pb-5 pt-0 bg-orange-50/60 border-t border-orange-100">
                         <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                           {faq.answer}
                         </p>
@@ -192,6 +221,7 @@ export default function FAQ() {
                 </div>
               );
             })}
+
             {filteredFaqs.length === 0 && (
               <div className="rounded-xl border border-dashed border-gray-300 p-8 text-center">
                 <p className="text-gray-600">
@@ -202,7 +232,7 @@ export default function FAQ() {
           </div>
 
           {/* Help block */}
-          <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-6">
+          <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
               Still have questions?
             </h3>
@@ -212,13 +242,13 @@ export default function FAQ() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="mailto:support@onestopcreators.com"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-amber-500 text-white px-5 py-2.5 rounded-lg font-medium hover:brightness-110 transition"
               >
                 <Mail className="h-4 w-4" /> Email Support
               </a>
               <a
                 href="tel:0370-0411833"
-                className="inline-flex items-center gap-2 border border-blue-600 text-blue-600 px-5 py-2.5 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition"
+                className="inline-flex items-center gap-2 border-2 border-orange-600 text-orange-700 px-5 py-2.5 rounded-lg font-semibold hover:bg-orange-600 hover:text-white transition"
               >
                 <Phone className="h-4 w-4" /> Call: 0370-0411833
               </a>
@@ -226,12 +256,26 @@ export default function FAQ() {
                 href="https://calendly.com/onestopcreators"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-700 font-medium hover:underline"
+                className="inline-flex items-center gap-2 text-orange-700 font-semibold hover:underline"
               >
                 <CalendarDays className="h-4 w-4" /> Schedule Free Consultation
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Bottom micro-CTA */}
+        <div className="mt-10 text-center">
+          <p className="text-sm text-gray-500">
+            Can’t see your question? Try searching with different keywords or{" "}
+            <a
+              className="font-semibold text-orange-700 hover:underline"
+              href="/contact"
+            >
+              contact us
+            </a>
+            .
+          </p>
         </div>
       </main>
     </div>

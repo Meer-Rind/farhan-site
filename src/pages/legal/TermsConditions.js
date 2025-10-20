@@ -1,3 +1,4 @@
+// src/pages/TermsConditions.js
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,16 +11,15 @@ export default function TermsConditions() {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1600&q=80&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-white via-white to-orange-50/40">
+      {/* HERO (brand orange gradient, image-free for clarity) */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 text-white">
         <div className="relative mx-auto max-w-4xl px-4 py-14 text-center">
           <h1 className="text-4xl font-extrabold tracking-tight">Terms & Conditions</h1>
           <p className="mt-2 text-white/90">Last updated: {lastUpdated}</p>
 
-          {/* TOC */}
-          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
+          {/* TOC / Quick Nav */}
+          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-2">
             {[
               { id: "agreement", label: "Agreement" },
               { id: "definitions", label: "Definitions" },
@@ -42,7 +42,7 @@ export default function TermsConditions() {
               <button
                 key={item.id}
                 onClick={() => goto(item.id)}
-                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20"
+                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40"
               >
                 {item.label}
               </button>
@@ -55,12 +55,12 @@ export default function TermsConditions() {
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-black/5">
           {/* Intro notice */}
-          <div className="mb-8 rounded-xl border-l-4 border-blue-600 bg-blue-50 p-4">
-            <p className="text-sm text-blue-900">
+          <div className="mb-8 rounded-xl border-l-4 border-orange-600 bg-orange-50 p-4">
+            <p className="text-sm text-orange-900">
               These Terms & Conditions (“Terms”) govern your access to and use of the services provided by
               <b> One Stop Creators</b> (“we”, “us”, “our”). By using our website or services, you agree to these Terms.
               For privacy details, see our{" "}
-              <Link to="/privacy-policy" className="font-semibold text-blue-700 hover:underline">
+              <Link to="/privacy-policy" className="font-semibold text-orange-700 hover:underline">
                 Privacy Policy
               </Link>.
             </p>
@@ -114,7 +114,7 @@ export default function TermsConditions() {
             </ul>
             <p className="mt-3 text-gray-700">
               For refunds, please review our{" "}
-              <Link to="/refund-policy" className="text-blue-700 font-semibold hover:underline">Refund Policy</Link>.
+              <Link to="/refund-policy" className="text-orange-700 font-semibold hover:underline">Refund Policy</Link>.
             </p>
           </section>
 
@@ -248,7 +248,7 @@ export default function TermsConditions() {
             <div className="rounded-xl bg-gray-50 p-6">
               <p className="text-gray-700">
                 Email:{" "}
-                <a href="mailto:legal@onestopcreators.com" className="text-blue-700 font-semibold hover:underline">
+                <a href="mailto:legal@onestopcreators.com" className="text-orange-700 font-semibold hover:underline">
                   legal@onestopcreators.com
                 </a>
               </p>
@@ -256,15 +256,15 @@ export default function TermsConditions() {
               <p className="text-gray-700">Address: [Your Business Address]</p>
               <p className="mt-3 text-sm text-gray-500">
                 Related policies:{" "}
-                <Link to="/privacy-policy" className="font-semibold text-blue-700 hover:underline">
+                <Link to="/privacy-policy" className="font-semibold text-orange-700 hover:underline">
                   Privacy Policy
                 </Link>{" "}
                 •{" "}
-                <Link to="/cookie-policy" className="font-semibold text-blue-700 hover:underline">
+                <Link to="/cookie-policy" className="font-semibold text-orange-700 hover:underline">
                   Cookie Policy
                 </Link>{" "}
                 •{" "}
-                <Link to="/refund-policy" className="font-semibold text-blue-700 hover:underline">
+                <Link to="/refund-policy" className="font-semibold text-orange-700 hover:underline">
                   Refund Policy
                 </Link>
               </p>
@@ -276,7 +276,7 @@ export default function TermsConditions() {
         <div className="mt-8 text-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-blue-700 font-semibold hover:underline"
+            className="text-orange-700 font-semibold hover:underline"
           >
             Back to top
           </button>
