@@ -165,10 +165,10 @@ export default function Home() {
           {/* Image placeholders (replace with real images) */}
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {[
-              {src:"/images/stats-gmv.png",title:"GMV growth (YoY)"},
-              {src:"/images/stats-orders.png",title:"Orders by channel"},
-              {src:"/images/stats-conversion.png",title:"Conversion funnel"},
-              {src:"/images/stats-topcats.png",title:"Top categories"},
+              {src:"https://p16-oec-university-eu-sign-useast2a.ibyteimg.com/tos-useast2a-i-7azpoevbh9-euttp/c52cc01fd5114d22a9f2a8eb2da1770f~tplv-7azpoevbh9-image.png?lk3s=5d1a069b&x-expires=2028520570&x-signature=x6%2B2hDHTLS8pELqYPoR9mGELAko%3D",title:"GMV growth (YoY)"},
+              {src:"https://www.sellerapp.com/help/wp-content/uploads/2018/07/Screenshot-2025-01-24-164149.png",title:"Orders by channel"},
+              {src:"https://cdn.prod.website-files.com/5f60c731c7ffa072ec98ef9c/622687e750ba3f014c8ea0b4_rQTPVrEWLODSDWxddYV11M6oYkXEGvrZE0lsRdD8FkStwzCMrMRwixLTyvs8Zvms0F7fSzO1rilUvOQqOXUSPS09I-SOSHcDZaLFg43icL9CqwOCREP1Nxp7Hm_-W8v4EYNe68qGk3csucifWcM.jpeg",title:"Conversion funnel"},
+              {src:"https://www.geekseller.com/wp-content/uploads/2021/11/zdjecie-1024x538.png",title:"Top categories"},
             ].map(({src,title})=> (
               <figure key={title} className="rounded-2xl border border-orange-200/60 bg-orange-50/40 p-3">
                 <img src={src} alt={title} className="aspect-[16/10] w-full rounded-xl object-cover ring-1 ring-black/5" loading="lazy" />

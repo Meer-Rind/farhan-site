@@ -2,7 +2,7 @@ export const servicesData = {
   tiktok: {
     title: "TikTok Shop Services",
     description: "Boost your TikTok Shop with our expert services.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500",
+    image: "https://p16-oec-university-eu-sign-useast2a.ibyteimg.com/tos-useast2a-i-7azpoevbh9-euttp/c52cc01fd5114d22a9f2a8eb2da1770f~tplv-7azpoevbh9-image.png?lk3s=5d1a069b&x-expires=2028520570&x-signature=x6%2B2hDHTLS8pELqYPoR9mGELAko%3D",
     features: [
       "Product Listing Optimization",
       "Influencer Marketing & Paid Promotion",
@@ -20,7 +20,7 @@ export const servicesData = {
   ebay: {
     title: "eBay Store Services",
     description: "Optimize your eBay store for maximum sales.",
-    image: "https://images.unsplash.com/photo-1563013541-5a0c48f2b5a1?w=500",
+    image: "https://ir.ebaystatic.com/pictures/aw/pics/sc/sr152/seller-hub-tab-2-1.jpg",
     features: [
       "Store Optimization",
       "Product Listing",
@@ -38,7 +38,7 @@ export const servicesData = {
   etsy: {
     title: "Etsy Shop Services",
     description: "Grow your Etsy business with our specialized services.",
-    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500",
+    image: "https://www.putler.com/wp-content/uploads/2024/06/etsy-dashboard.webp",
     features: [
       "Shop Optimization",
       "Product Photography",
@@ -74,7 +74,7 @@ export const servicesData = {
   walmart: {
     title: "Walmart Marketplace Services",
     description: "Succeed on Walmart Marketplace with our expertise.",
-    image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=500",
+    image: "https://www.geekseller.com/wp-content/uploads/2021/11/zdjecie-1024x538.png",
     features: [
       "Marketplace Integration",
       "Product Catalog Management",
@@ -89,10 +89,10 @@ export const servicesData = {
       experience: 4
     }
   },
-  mercury: {
-    title: "Mercury Services",
+  mercari: {
+    title: "mercari Services",
     description: "Complete business solutions for your online store.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500",
+    image: "https://miro.medium.com/v2/resize:fit:1400/1*BIZHFAQLS0Fp9ZGqxdSW0Q.png",
     features: [
       "Business Consulting",
       "Financial Management",

@@ -45,14 +45,22 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Left: Brand */}
-          <Link to="/" className="group flex items-center gap-2">
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-md shadow-orange-900/10 ring-1 ring-black/5">
-              <i className="fas fa-rocket" />
-            </span>
-            <span className="text-lg font-extrabold tracking-tight text-gray-900">
-              OneStop <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Creators</span>
-            </span>
-          </Link>
+         <Link to="/" className="group flex items-center gap-2">
+  <span className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden shadow-md ring-1 ring-black/5">
+    <img
+      src={require("../images/Symbol.jpg")}
+      alt="OneStop Creators Logo"
+      className="h-10 w-10 object-contain"
+    />
+  </span>
+  <span className="text-lg font-extrabold tracking-tight text-gray-900">
+    OneStop{" "}
+    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
+      Creators
+    </span>
+  </span>
+</Link>
+
 
           {/* Right: Desktop nav */}
           <div className="hidden items-center gap-6 md:flex">

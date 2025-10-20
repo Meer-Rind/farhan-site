@@ -14,35 +14,29 @@ import "swiper/css/pagination";
 
 const VideoGallery = () => {
   const videos = [
-    {
-      id: "video1",
-      title: "TikTok Shop — 2.1x ROAS Playbook",
-      thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80&auto=format&fit=crop",
-      youtubeId: "dQw4w9WgXcQ",
-      badge: "TikTok Shop",
-    },
-    {
-      id: "video2",
-      title: "eBay — Listing SEO That Ranks",
-      thumbnail: "https://images.unsplash.com/photo-1563013541-5a0c48f2b5a1?w=1200&q=80&auto=format&fit=crop",
-      youtubeId: "dQw4w9WgXcQ",
-      badge: "eBay",
-    },
-    {
-      id: "video3",
-      title: "Etsy — Visuals That Convert",
-      thumbnail: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&q=80&auto=format&fit=crop",
-      youtubeId: "dQw4w9WgXcQ",
-      badge: "Etsy",
-    },
-    {
-      id: "video4",
-      title: "Walmart — Sponsored Ads Tuning",
-      thumbnail: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80&auto=format&fit=crop",
-      youtubeId: "dQw4w9WgXcQ",
-      badge: "Walmart",
-    },
-  ];
+  {
+    id: "video1",
+    title: "TikTok Shop — Real Client Results",
+    thumbnail: "https://img.youtube.com/vi/TjAAENzzVDU/hqdefault.jpg",
+    youtubeId: "TjAAENzzVDU",
+    badge: "TikTok Shop",
+  },
+  {
+    id: "video2",
+    title: "eBay — Growth Testimonial",
+    thumbnail: "https://img.youtube.com/vi/vTKNhn6d6DE/hqdefault.jpg",
+    youtubeId: "vTKNhn6d6DE",
+    badge: "eBay",
+  },
+  {
+    id: "video3",
+    title: "Etsy — Sales Boost Review",
+    thumbnail: "https://img.youtube.com/vi/vgSoWHihqy4/hqdefault.jpg",
+    youtubeId: "vgSoWHihqy4",
+    badge: "Etsy",
+  },
+];
+
 
   const openVideo = (id) => {
     window.open(`https://www.youtube.com/watch?v=${id}`, "_blank", "noopener,noreferrer");

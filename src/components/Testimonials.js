@@ -83,7 +83,7 @@ const Testimonials = ({ serviceId }) => {
           </p>
 
           <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {["https://www.youtube.com/embed/dQw4w9WgXcQ", "https://www.youtube.com/embed/9bZkp7q19f0"].map((src, i) => (
+            {["https://www.youtube.com/embed/TjAAENzzVDU", "https://www.youtube.com/embed/vTKNhn6d6DE"].map((src, i) => (
               <div key={i} className="relative overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5">
                 <div className="h-1.5 w-full bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600" />
                 <div className="aspect-video">

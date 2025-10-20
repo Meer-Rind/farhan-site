@@ -15,11 +15,11 @@ const Footer = () => {
   const handleFooterNav = useScrollToTopOnFooterNav();
 
   const social = [
-    { icon: "fab fa-facebook-f", link: "#", color: "hover:text-orange-400", label: "Facebook" },
+    { icon: "fab fa-facebook-f", link: "https://www.facebook.com/profile.php?id=61581622024741", color: "hover:text-orange-400", label: "Facebook" },
     { icon: "fab fa-twitter", link: "#", color: "hover:text-orange-400", label: "Twitter" },
-    { icon: "fab fa-instagram", link: "#", color: "hover:text-orange-400", label: "Instagram" },
-    { icon: "fab fa-linkedin-in", link: "#", color: "hover:text-orange-400", label: "LinkedIn" },
-    { icon: "fab fa-youtube", link: "#", color: "hover:text-orange-400", label: "YouTube" },
+    { icon: "fab fa-instagram", link: "https://www.instagram.com/one.stopcreators/", color: "hover:text-orange-400", label: "Instagram" },
+    { icon: "fab fa-linkedin-in", link: "https://www.linkedin.com/company/one-stop-creators/?originalSubdomain=pk", color: "hover:text-orange-400", label: "LinkedIn" },
+    { icon: "fab fa-youtube", link: "https://www.youtube.com/@OneStopCreators", color: "hover:text-orange-400", label: "YouTube" },
   ];
 
   const quickLinks = [
@@ -49,9 +49,14 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-6 lg:col-span-5">
             <div className="mb-6 flex items-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-orange-600 to-amber-500 shadow-md shadow-orange-900/20 ring-1 ring-white/10">
-                <i className="fas fa-rocket text-white text-lg" />
-              </div>
+             <div className="flex h-12 w-12 items-center justify-center rounded-lg overflow-hidden shadow-md shadow-orange-900/20 ring-1 ring-white/10 bg-white">
+  <img
+    src={require("../images/Symbol.jpg")}
+    alt="One Stop Creators Logo"
+    className="h-12 w-12 object-contain"
+  />
+</div>
+
               <h3 className="ml-3 text-2xl font-bold tracking-tight text-white">One Stop Creators</h3>
             </div>
             <p className="mb-6 max-w-prose leading-relaxed text-gray-400">
@@ -130,7 +135,7 @@ const Footer = () => {
               <div>
                 <p className="font-medium text-white">Phone:</p>
                 <a href="tel:03700411833" onClick={handleFooterNav} className="text-gray-400 transition hover:text-orange-300">
-                  0370-0411833
+                  0370-0411831
                 </a>
               </div>
               <div>
