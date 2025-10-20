@@ -83,14 +83,14 @@ export default function Home() {
               <div className="relative mx-auto max-w-md rounded-2xl bg-white p-3 shadow-xl ring-1 ring-black/5">
                 <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-orange-50 to-amber-50">
                   <img
-                    src="/images/hero-dashboard.png"
+                    src="https://cdn.prod.website-files.com/6298f816727c4877f3fc6f6f/64a32992bf9eb5d9e2baef93_29ralQyTfrtD5ex6aHb7ME1fh2BxYgBc_38XdeQZGDDpRVW6E-cPUx85CAXBf-U8Gs0iZ7rvSEuDSd3o0x8W1Bjbx8CVpW__5sisAKPEKxXS201DlnrmE7-miVn94z3udwtEcrRnaFDaY-JW6mWHytE.png"
                     alt="Performance dashboard preview"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
                 </div>
                 <div className="mt-3 grid grid-cols-3 gap-3">
-                  {["/images/hero-orders.png","/images/hero-creative.png","/images/hero-reviews.png"].map((src,i)=> (
+                  {["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS02k_2jeLJ0f7dcJfuoBjCzuoP7wg0Nw8MOA&s","https://cdn.prod.website-files.com/5f60c731c7ffa072ec98ef9c/622687e750ba3f014c8ea0b4_rQTPVrEWLODSDWxddYV11M6oYkXEGvrZE0lsRdD8FkStwzCMrMRwixLTyvs8Zvms0F7fSzO1rilUvOQqOXUSPS09I-SOSHcDZaLFg43icL9CqwOCREP1Nxp7Hm_-W8v4EYNe68qGk3csucifWcM.jpeg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOkJ-kSUzMAKc2zBld8hceEHGCzQ28rpaiow&s"].map((src,i)=> (
                     <img key={i} src={src} alt="Hero supporting visual" className="h-24 w-full rounded-lg object-cover ring-1 ring-black/5" loading="lazy" />
                   ))}
                 </div>
